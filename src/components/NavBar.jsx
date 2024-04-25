@@ -1,20 +1,33 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Navbar, Nav } from 'react-bootstrap'; 
+import { LinkContainer } from 'react-router-bootstrap'; 
+import logo from '../assets/ptcl logo.png';
 
 function NavBar() {
   return (
-    <nav style={{ display: 'flex', justifyContent: 'space-between', padding: '1rem', background: '#333', color: '#fff' }}>
-      <div>
-        <img src="/path/to/logo.png" alt="Logo" style={{ height: '40px', marginRight: '10px' }} />
+    <Navbar bg="dark" variant="dark" expand="lg" fixed="top"> 
+      <Navbar.Brand>
+        <img src={logo} alt="Logo" style={{ height: '40px', marginRight: '10px' }} /> 
         My React App
-      </div>
-      <div>
-        <Link to="/" style={{ margin: '0 10px', color: '#fff' }}>Home</Link>
-        <Link to="/about" style={{ margin: '0 10px', color: '#fff' }}>About</Link>
-        <Link to="/products" style={{ margin: '0 10px', color: '#fff' }}>Products</Link>
-        <Link to="/contact" style={{ margin: '0 10px', color: '#fff' }}>Contact Us</Link>
-      </div>
-    </nav>
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" /> 
+      <Navbar.Collapse id="basic-navbar-nav"> 
+        <Nav className="ml-auto"> 
+          <LinkContainer to="/"> 
+            <Nav.Link>Home</Nav.Link> 
+          </LinkContainer>
+          <LinkContainer to="/about"> 
+            <Nav.Link>About</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/products"> 
+            <Nav.Link>Products</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/contact"> 
+            <Nav.Link>Contact Us</Nav.Link>
+          </LinkContainer>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
 }
 
